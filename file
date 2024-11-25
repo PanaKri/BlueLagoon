@@ -1,0 +1,90 @@
+[33mcommit e6b12b45de9716aadc1a6ada03e10f93e44b1dc6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Konstantinos Kyprianou <t8220215@aueb.gr>
+Date:   Mon Nov 4 20:35:39 2024 +0200
+
+    I added my name
+
+[33mcommit 51b897a43d1b1a1b8208640a770eccf6bd6f802c[m
+Merge: 33ca183 34fa651
+Author: PanaKri <t8230065@aueb.gr>
+Date:   Mon Nov 4 13:15:05 2024 +0200
+
+    Merge pull request #5 from elenapapaioannou-8230116/patch-1
+    
+    Update HelloWorld.java
+
+[33mcommit 34fa65132312fc77ffcf3b442d653e6f2774a19d[m
+Author: elenapapaioannou-8230116 <t8230116@aueb.gr>
+Date:   Mon Nov 4 13:12:05 2024 +0200
+
+    Update HelloWorld.java
+
+[33mcommit 33ca1836aa4fd98131fb3816bca76548c64d5c6f[m
+Author: chrysfed <t8230167@aueb.gr>
+Date:   Mon Nov 4 11:12:27 2024 +0200
+
+    Update HelloWorld.java
+
+[33mcommit f21eba2e7b8572833c34b70ba05d6ae4b6697c8d[m
+Merge: ed45e2f 40d2fed
+Author: vasilikiz5 <t8230036@aueb.gr>
+Date:   Sat Nov 2 19:54:24 2024 +0200
+
+    Merge pull request #4 from PanaKri/test1
+    
+    Update HelloWorld.java
+
+[33mcommit 40d2fedf2c2d366a1e9e51d4c3d9031bc129e9c6[m
+Author: vasilikiz5 <t8230036@aueb.gr>
+Date:   Sat Nov 2 19:53:55 2024 +0200
+
+    Update HelloWorld.java
+
+[33mcommit ed45e2fc02fe5044ceba108a18e08177fae48f18[m
+Author: vasilikiz5 <t8230036@aueb.gr>
+Date:   Sat Nov 2 19:53:09 2024 +0200
+
+    Update HelloWorld.java
+
+[33mcommit 82f47119b77d9a7d195168bf8f9f8e839b31696f[m
+Merge: f67ef32 c8221f6
+Author: vasilikiz5 <t8230036@aueb.gr>
+Date:   Sat Nov 2 19:46:17 2024 +0200
+
+    Merge pull request #3 from PanaKri/test1
+    
+    Update HelloWorld.java
+
+[33mcommit c8221f6290a14fe462f0966cdd6d5f1ac12a7a47[m
+Author: vasilikiz5 <t8230036@aueb.gr>
+Date:   Sat Nov 2 19:45:47 2024 +0200
+
+    Update HelloWorld.java
+
+[33mcommit f67ef32280fd7048a06446ebed9b1c372e851739[m
+Author: vasilikiz5 <t8230036@aueb.gr>
+Date:   Sat Nov 2 19:32:22 2024 +0200
+
+    Update HelloWorld.java
+
+[33mcommit 77478ef135c7f5e81a867a15e16c4f233328e34d[m
+Merge: 6d335e2 49aac56
+Author: PanaKri <t8230065@aueb.gr>
+Date:   Sat Nov 2 19:16:15 2024 +0200
+
+    Merge pull request #1 from PanaKri/nefelims-patch-1
+    
+    Hello World/Nefeli
+
+[33mcommit 49aac56db507e2268d2ddfc0b50f7654269bb6e5[m
+Author: nefelims <nefemissiou@dmst.aueb.gr>
+Date:   Sat Nov 2 19:08:27 2024 +0200
+
+    Add files via upload
+
+[33mcommit 6d335e229640d40c2e29b27b5d85f03e228b6555[m
+Author: PanaKri <t8230065@aueb.gr>
+Date:   Sat Nov 2 09:38:27 2024 +0200
+
+    Add HelloWorld
+    git status
