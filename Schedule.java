@@ -12,7 +12,7 @@ public class Schedule {
     }
     public boolean CheckAvailableTime(int day, int time) {
         if (day < 0 || day >= days || time < 0 || time >= times) {
-            System.out.println('no rooms available for this day and time');
+            System.out.println("no rooms available for this day and time");
             return false;
         }
         return examTimes[day][time];
