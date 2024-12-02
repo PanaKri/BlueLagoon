@@ -1,5 +1,5 @@
-Public class Subject {
+public class Subject {
     private int subjectCode;
-    privaste int studentNumber;
+    private int studentNumber;
     private int professorAM;
 }
