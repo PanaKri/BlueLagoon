@@ -1,16 +1,16 @@
 public class Inspector {
     int AM;
-    int [][] availableHours = new int [10][10];
-    int [][] roomNumbers = new int [10][10];
+    int [][] availableHours = new int [5][5];
+    int [][] roomNumbers = new int [5][5];
     public Inspector(int inputAM) {
         this.AM = inputAM;
-        for(int i = 0; i < 10; i++) {
-            for(int j = 0; j < 10; j++) {
+        for(int i = 0; i < 5; i++) {
+            for(int j = 0; j < 5; j++) {
                 availableHours[i][j] = 0;
             }
         }
-        for(int i = 0; i < 10; i++) {
-            for(int j = 0; j < 10; j++) {
+        for(int i = 0; i < 5; i++) {
+            for(int j = 0; j < 5; j++) {
                 roomNumbers[i][j] = 0;
             }
         }
