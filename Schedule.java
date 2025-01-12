@@ -1,8 +1,9 @@
 public class Schedule {
     private int days = 5;
     private int times = 5;//9-7 available times by 2 hour intervals
-    private String [][][][] examTimes; //day, time, room, inspector and subject
-    public Schedule(int numOfRooms) { 
+    private int numOfRooms = 5;
+    private String [][][][] examTimes; //day, time, room, subject and inspector
+    public Schedule() { 
         examTimes = new String[days][times][numOfRooms][2];
         for (int index = 0; index < days; index++) {
             for (int index1 = 0; index1 < times; index1++) {
@@ -22,5 +23,17 @@ public class Schedule {
         }
     }
     public void printSchedule() {
+        for (int d = 0; d < 5; d++) {
+            System.out.println("Day" + "" + d);
+            for (int t = 0; t < 5; t++) {
+                System.out.print("Zone" + "" + t);
+                for (int r = 0; r < 5; r++) {
+                    if (examTimes[d][t][r][0] != "None" & examTimes[d][t][r][1] != "None" ) {
+                        System.out.print("Course:" + examTimes[d][t][r][0] + ""
+                        + "Room:" + r);
+                    }
+                }  
+            }
+        }
     }
 }
