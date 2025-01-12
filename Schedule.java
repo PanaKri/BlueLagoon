@@ -9,7 +9,7 @@ public class Schedule {
                 for (int index2 = 0; index2 < numOfRooms; index2++) {
                     this.examTimes[index][index1][index2][0] = "None";
                     this.examTimes[index][index1][index2][1] = "None";
-                }  
+                }
             } 
         }
     }
