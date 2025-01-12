@@ -5,12 +5,16 @@ public class Professor {
     private int am;
     private String[] courses;
     private LocalDate[] examDates;
+    public static Professor[] proffessors;
+    public static int profCount = 0;
     public Professor(String name, String surname, int am, String[] courses) {
         this.name=name;
         this.surname=surname;
         this.am=am;
         this.courses=courses;
         this.examDates = new LocalDate[courses.length];
+        proffessors[profCount] = this;
+        profCount++;
     }
     public void assignExamDate(int index, LocalDate date) {
         if (index >= 0 && index < courses.length) {
