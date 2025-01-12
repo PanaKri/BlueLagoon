@@ -32,7 +32,8 @@ public class Schedule {
                         System.out.print("Course:" + examTimes[d][t][r][0] + ""
                         + "Room:" + r);
                     }
-                }  
+                }
+                System.out.println(""); 
             }
         }
     }
