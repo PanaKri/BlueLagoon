@@ -5,7 +5,7 @@ public class Room {
     public static Room[] rooms;
     public static int roomCount = 0;
     // Constructor
-    public Room(int numberOfSeats, String selectedInstructor) {
+    public Room(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
         this.roomNumber = roomCount;
         this.availability = new boolean[5][5];
