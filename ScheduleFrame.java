@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -14,6 +16,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScheduleFrame extends JFrame {
     private static JButton ok;
@@ -45,7 +49,14 @@ public class ScheduleFrame extends JFrame {
          ok.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //add the new page 
+                String chosenCourse = (String) courseDropdown.getSelectedItem();
+
+                if (chosenCourse != null) {
+                    //new frame to display the details for the course examination
+                    courseDetails(chosenCourse);
+                } else {
+                    JOptionPane.showMessageDialog(courseDropdown, "No details found for the selected course.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
@@ -64,18 +75,17 @@ public class ScheduleFrame extends JFrame {
 
         this.setVisible(true);
     }
-    
-    //jdcb url, username and password of MySQL database
-    private static final String url = 
-    "jdbc:mysql://LAPTOP-1VUDT0DH:3306/JAVA";
- 
-    private static final String dbUser= "root";
-    private static final String dbPassword= "stevasti_LAMPROS!23";
 
-    
-    //a method to establish a connection with the database and initializes the connection object
-    public JComboBox<String> chooseCourse() {
-        
+     //jdcb url, username and password of MySQL database//
+     private static final String dbUser= "root";
+     private static final String dbPassword= "sevasti_LAMPROS!23";
+     private static final String url = "jdbc:mysql://localhost:3306/JAVA";
+
+    private static List<Subject> subjectList = new ArrayList<>();
+   
+     //a method to establish a connection with the database and initializes the connection object
+    public  JComboBox<String> chooseCourse() {
+
         JComboBox<String> courseDropdown = new JComboBox<>();
         //Dynamically load the driver's class file into memory //
         try {
@@ -85,12 +95,10 @@ public class ScheduleFrame extends JFrame {
             System.exit(0);
         }
 
-
         try {
-            connection = DriverManager.getConnection(url);			
+            connection = DriverManager.getConnection(url, dbUser, dbPassword);		
 		} catch (SQLException e) {			
 			System.out.println("SQLException: " + e.getMessage());
-			System.exit(0);
 		}
         //execute SQL statements 
         try {           
@@ -116,6 +124,67 @@ public class ScheduleFrame extends JFrame {
         }
         return courseDropdown;
     }
+    private void courseDetails(String subjectName) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println("ClassNotFoundException" + e.getMessage());
+            System.exit(0);
+        }
+        try {
+            connection = DriverManager.getConnection(url, dbUser, dbPassword);
+            statement = connection.createStatement();
+    
+            resultS = statement.executeQuery("SELECT * FROM COURSE WHERE course_name = '" + subjectName + "';");
+    
+            if (resultS.next()) {
+                String examTime = resultS.getString("exam_time");
+                String examDate = resultS.getString("exam_date");
+                int subjectCode = resultS.getInt("subject_code");
+                int studentNumber = resultS.getInt("student_number");
+                int professorAM = resultS.getInt("professor_am");
+                int examRoomNumber = resultS.getInt("exam_room");
+                String courseName = resultS.getString("course_name");
+                
+                Subject subject = new Subject(subjectCode, studentNumber, professorAM, examRoomNumber, courseName, examDate, examTime);
+                subjectList.add(subject);
+
+                showSchedule();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No details found for the selected course.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            // Close resources
+            try {
+                if (resultS != null) resultS.close();
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+
+     private void showSchedule() {
+        addExam(subject);
+        Schedule s = new Schedule();
+        String[][] scheduleArray = s.scheduleArray();
+        
+        JFrame scheduleF = new JFrame("Exam Schedule");
+        scheduleF.setSize(600, 400);
+
+        String[] columnNames = {"Day", "Time", "Room 1", "Room 2", "Room 3", "Room 4", "Room 5"};
+        JTable scheduleT = new JTable(scheduleArray, columnNames);
+        JScrollPane scrollP= new JScrollPane(scheduleT);
+
+        scheduleF.add(scrollP);
+        scheduleF.setVisible(true);
+    }
+
     public static void main (String[] args) {
         new ScheduleFrame();
     }
