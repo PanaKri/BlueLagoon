@@ -3,7 +3,6 @@ public class Subject {
     private int studentNumber;
     private String subjectName;
     private int professorAM;
-    public int examRoomNumber;
     public static Subject[] subjects;
     public static int subjectCount = 0;
     public Subject(int subCode, int studNumber, int proffAM, int roomNum, String name) {
@@ -11,7 +10,6 @@ public class Subject {
         this.subjectCode = subCode;
         this.studentNumber = studNumber;
         this.professorAM = proffAM;
-        this.examRoomNumber = 0;
         subjects[subjectCount] = this;
         subjectCount++;
     }
@@ -27,7 +25,6 @@ public class Subject {
     public void getInfo() {
         System.out.println("this is subject " + subjectCode
         + " is taught by " + professorAM + " with enrolled " 
-        + studentNumber + " students" + " taken in room "
-        + examRoomNumber);
+        + studentNumber + " students");
     }
 }
