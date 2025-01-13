@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.Scanner;
 public class Student {
     private String name;
