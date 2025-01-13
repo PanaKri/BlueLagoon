@@ -7,6 +7,7 @@ public class Subject {
     public static Subject[] subjects;
     public static int subjectCount = 0;
     public Subject(int subCode, int studNumber, int proffAM, int roomNum, String name) {
+        this.subjectName = name;
         this.subjectCode = subCode;
         this.studentNumber = studNumber;
         this.professorAM = proffAM;
