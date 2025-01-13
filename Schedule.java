@@ -13,14 +13,14 @@ public class Schedule {
             } 
         }
     }
-    public void addExam(Subject sub, Room room) { //Availability Check
+    public void addExam(Subject sub) { //Availability Check
         String s = sub.getSubjectName();
         int num = sub.getStudentNumber();
         int d = 0;
         int t = 0;
         int min = 100 * num;
         int r = 0;
-        Room newRoom = room.rooms[r]; 
+        Room newRoom = Room.rooms[r]; 
         int bestChoice = -1;
         boolean flag = false;
         for (r = 0; r < 5; r++) { // Finds optimized Room for Exam
@@ -29,7 +29,7 @@ public class Schedule {
             min = newRoom.getNumberOfSeats();
             }
         }
-        newRoom = room.rooms[bestChoice];
+        newRoom = Room.rooms[bestChoice];
         do { // Searches when available
             if (newRoom.checkAvailability(d, t, r) == true) {
                 this.examTimes[d][t][bestChoice] = s;
