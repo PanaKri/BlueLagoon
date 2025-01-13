@@ -35,8 +35,11 @@ public class Schedule {
                 this.examTimes[d][t][bestChoice] = s;
                 flag = true;
             } else {
-                d = d + 1;
                 t = t + 1;
+                if (t == 6) {
+                    d = d + 1;
+                    t = 0;
+                }
             }
         } while (flag == false);
     }
