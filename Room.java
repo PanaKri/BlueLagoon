@@ -40,7 +40,7 @@ public class Room {
             System.out.println("Room " + r + " is available, set exam in this day on this room");
             return true;
         } else {
-            System.out.println("Not available or not enough seats");
+            System.out.println("Not available");
             return false;
         }
     }
