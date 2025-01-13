@@ -1,13 +1,12 @@
 public class Subject {
     private int subjectCode;
     private int studentNumber;
+    private String subjectName;
     private int professorAM;
     public int examRoomNumber;
-    private int examDate;
-    private int examHour;
     public static Subject[] subjects;
     public static int subjectCount = 0;
-    public Subject(int subCode, int studNumber, int proffAM, int roomNum) {
+    public Subject(int subCode, int studNumber, int proffAM, int roomNum, String name) {
         this.subjectCode = subCode;
         this.studentNumber = studNumber;
         this.professorAM = proffAM;
@@ -15,21 +14,14 @@ public class Subject {
         subjects[subjectCount] = this;
         subjectCount++;
     }
-    public void setExamRoomNumber(int num) {
-        this.examRoomNumber = num;
+    public String getSubjectName() {
+        return this.subjectName;
     }
-    public void setExamHour(int num) {
-        this.examHour = num;
-    }public void setExamDate(int num) {
-        this.examDate = num;
+    public int getSubjectCode() {
+        return this.subjectCode;
     }
-    public int getExamHour() {
-        return examHour;
-    }
-    public int getExamDate() {
-        return examDate;
-    }    public int getExamRoomNumber() {
-        return examRoomNumber;
+    public int getStudentNumber() {
+        return studentNumber;
     }
     public void getInfo() {
         System.out.println("this is subject " + subjectCode

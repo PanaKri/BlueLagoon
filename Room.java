@@ -34,12 +34,14 @@ public class Room {
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
-    public String checkAvailability(int day, int hour,int numOfStudents) {
-        if (this.availability[day][hour] == true & numOfStudents <= numberOfSeats) {
+    public boolean checkAvailability(int day, int hour, int r) {
+        if (this.availability[day][hour] == true) {
             this.availability[day][hour] = false;
-            return ("The room is available, set exam in this day on this room");
+            System.out.println("Room " + r + " is available, set exam in this day on this room");
+            return true;
         } else {
-            return ("Not available or not enough seats");
+            System.out.println("Not available or not enough seats");
+            return false;
         }
     }
 }

@@ -13,12 +13,32 @@ public class Schedule {
             } 
         }
     }
-    public void addExam(int day, int time, int roomCode, String subjName) { //Availability Check
-        if (this.examTimes[day][time][roomCode] == "None") {
-            this.examTimes[day][time][roomCode] = subjName;
-        } else {
-            System.out.println("Exam already set");
+    public void addExam(Subject sub, Room room) { //Availability Check
+        String s = sub.getSubjectName();
+        int num = sub.getStudentNumber();
+        int d = 0;
+        int t = 0;
+        int min = 100 * num;
+        int r = 0;
+        Room newRoom = room.rooms[r]; 
+        int bestChoice = -1;
+        boolean flag = false;
+        for (r = 0; r < 5; r++) { // Finds optimized Room for Exam
+            if (newRoom.getNumberOfSeats() >= num & newRoom.getNumberOfSeats() <= min) {
+            bestChoice = r;
+            min = newRoom.getNumberOfSeats();
+            }
         }
+        newRoom = room.rooms[bestChoice];
+        do { // Searches when available
+            if (newRoom.checkAvailability(d, t, r) == true) {
+                this.examTimes[d][t][bestChoice] = s;
+                flag = true;
+            } else {
+                d = d + 1;
+                t = t + 1;
+            }
+        } while (flag == false);
     }
     public void printSchedule() { //For cmd line
         for (int d = 0; d < 5; d++) {
@@ -35,7 +55,7 @@ public class Schedule {
             }
         }
     }
-    public String[][] scheduleArray() {
+    public String[][] scheduleArray() { //For UI
         String[][] scheduleArr = new String[30][6];
         int h = 0;//Tracks the hour based on row
         for (int i = 0; i < 30; i++) {
