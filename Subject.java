@@ -5,7 +5,7 @@ public class Subject {
     private int professorAM;
     public static Subject[] subjects;
     public static int subjectCount = 0;
-    public Subject(int subjectCode, int studNumber, int professorAM, int examrRoomNum, String courseName, String examDate, String examTime) {
+    public Subject(int subjectCode, int studNumber, int professorAM, String courseName) {
         this.courseName = courseName;
         this.subjectCode = subjectCode;
         this.studentNumber = studNumber;
