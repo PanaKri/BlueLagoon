@@ -31,7 +31,7 @@ public class Schedule {
         }
         newRoom = Room.rooms[bestChoice];
         do { // Searches when available
-            if (newRoom.checkAvailability(d, t, r) == true) {
+            if (newRoom.checkAvailability(d, t, bestChoice) == true) {
                 this.examTimes[d][t][bestChoice] = s;
                 flag = true;
             } else {
