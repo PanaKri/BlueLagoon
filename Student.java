@@ -3,37 +3,32 @@ public class Student {
     private String name;
     private String surname;
     private int studentID;
-    private int yearOfAdmission;
-    private int numbOfCourses;
     private String course;
-    private String currentSemester;
-    String answer;
-    Scanner input = new Scanner(System.in);
-    public Student(String name, String surname, int studentID, int yearOfAdmission) {
+    private Scanner input = new Scanner(System.in);
+    public int studentCount = 0;
+    public static Student[] students; //Tracks all of the Students
+    private String[] courses = new String[5]; //Keeps courses up to a max of 5
+    int courseCount = 0;
+    public Student(String name, String surname, int studentID) {
        this.name = name;
        this.surname = surname;
        this.studentID = studentID;
-       this.yearOfAdmission = yearOfAdmission; 
+       students[studentCount] = this;
+       studentCount = studentCount + 1;
     }
-    public void getEnrolled() {
-        do {
-            System.out.println("Enter the semester you are currently traversing (Winter, Spring):");
-            currentSemester = input.nextLine();
-            if (!currentSemester.equals("Winter") && !currentSemester.equals("Spring")) {
-                System.out.println("Invalid semester.Please enter 'Winter' or 'Spring'.");
-            }
-        } while (!currentSemester.equals("Winter") && !currentSemester.equals("Spring"));
-        do {
+    public String getEnrolled() { //Adds student to a subject
+        if (courseCount < 5) {
             System.out.println("Enter the course you want to get enrolled in:");
             course = input.nextLine();
-            numbOfCourses = numbOfCourses + 1;
             System.out.println("You have enrolled in:" + " " + course); 
-            System.out.println("Do you want to enroll in another course?(Yes,No)");
-            answer = input.nextLine();
-        } while(numbOfCourses < 15 && answer.equals("Yes") );
-        System.out.println("You have enrolled in:" + " " + numbOfCourses + " " + "courses.");
+            courses[courseCount] = course;
+            courseCount = courseCount + 1;
+            return course;
+        } else {
+            return "You have reached the maximum amount of courses";
+        }
     }
     @Override public String toString() {
-        return name + " " + surname + " " + "has student ID: " + studentID + "and got registered in: " + yearOfAdmission;
+        return name + " " + surname + " " + "has student ID: " + studentID;
     }
 }
