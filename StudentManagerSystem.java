@@ -3,6 +3,18 @@ import java.util.Scanner;
 public class StudentManagerSystem {
     Scanner input = new Scanner(System.in);
     private String choice;
+    public int identify() {
+        System.out.println("Type your AM");
+        int am = input.nextInt();
+        int AM = -1;
+        for (int i = 0; i < Student.studCount; i++) {
+            Student student = Student.students[i];
+            if (student.getAM() == am) {
+                AM = i;
+            }
+        }
+        return AM;
+    }
     public void addSubject(Student stud) {
         System.out.println("Please state which subject you want to get enrolled");
         choice = input.nextLine();

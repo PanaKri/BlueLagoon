@@ -13,11 +13,11 @@ public class Schedule {
             } 
         }
     }
-    public void addExam(Subject sub) { //Availability Check
+    public void addExam(Subject sub, int d, int t) { //Availability Check
         String s = sub.getSubjectName();
         int num = sub.getStudentNumber();
-        int d = 0;
-        int t = 0;
+        int day = d;
+        int time = t;
         int min = 100 * num;
         int r = 0;
         Room newRoom = Room.rooms[r]; 
@@ -31,14 +31,17 @@ public class Schedule {
         }
         newRoom = Room.rooms[bestChoice];
         do { // Searches when available
-            if (newRoom.checkAvailability(d, t, r) == true) {
+            if (newRoom.checkAvailability(day, time, bestChoice) == true) {
                 this.examTimes[d][t][bestChoice] = s;
                 flag = true;
             } else {
-                d = d + 1;
-                t = t + 1;
+                time = time + 1;
+                if (time == 5) {
+                    day = day + 1;
+                    time = 0;
+                }
             }
-        } while (flag == false);
+        } while (flag == false & day < 5);
     }
     public void printSchedule() { //For cmd line
         for (int d = 0; d < 5; d++) {

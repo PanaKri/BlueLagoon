@@ -149,7 +149,9 @@ public class ScheduleFrame extends JFrame {
                 subjectList.add(subject);
                 DB info = new DB();
                 info.addInfo();
-                showSchedule(subject);
+                int d = 0;
+                int t = 0;
+                showSchedule(subject, d, t);
 
             } else {
                 JOptionPane.showMessageDialog(null, "No details found for the selected course.");
@@ -169,9 +171,9 @@ public class ScheduleFrame extends JFrame {
     }
 
    
-    private void showSchedule(Subject subject) {
+    private void showSchedule(Subject subject, int d, int t) {
         Schedule s = new Schedule();
-        s.addExam(subject);
+        s.addExam(subject, d, t);
         String[][] scheduleArray = s.scheduleArray();
         
         JFrame scheduleF = new JFrame("Exam Schedule");

@@ -5,6 +5,8 @@ public class Student {
     private int yearOfAdmission;
     private int numbOfCourses = 0;
     private String[] courses = new String[5];
+    public static Student[] students= new Student[10];
+    public static int studCount = 0;
     public Student(String name, String surname, int studentID, int yearOfAdmission) {
        this.name = name;
        this.surname = surname;
@@ -13,6 +15,8 @@ public class Student {
        for (int i = 0; i < 5; i++) {
         courses[i] = "None";
        }
+       students[studCount] = this;
+       studCount = studCount + 1;
     }
     public String getEnrolled(String s) {
         if (numbOfCourses < 5) {
@@ -37,5 +41,8 @@ public class Student {
             } while (courses[i] != "None" & i < 5);
         }
         return s;
+    }
+    public int getAM() {
+        return this.studentID;
     }
 }
