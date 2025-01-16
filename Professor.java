@@ -29,5 +29,5 @@ public class Professor {
         for (int i=0; i < courses.length; i++) {
             System.out.println("-" + courses[i] + ":" + (examDates[i]!= null ? examDates[i] : "Not set"));
         }
-    }    
+    }
 }

@@ -3,13 +3,22 @@ public class Subject {
     private int studentNumber;
     private String courseName;
     private int professorAM;
+    public int examRoomNumber;
+    private String examDate;
+    private String examTime;
     public static Subject[] subjects;
     public static int subjectCount = 0;
-    public Subject(int subjectCode, int studNumber, int professorAM, String courseName) {
+    static {
+        subjects = new Subject[100];
+    }
+    public Subject(int subjectCode, int studNumber, int professorAM, int examrRoomNum, String courseName, String examDate, String examTime) {
         this.courseName = courseName;
         this.subjectCode = subjectCode;
         this.studentNumber = studNumber;
         this.professorAM = professorAM;
+        examRoomNumber = 0;
+        this.examDate = examDate;
+        this.examTime = examTime;
         subjects[subjectCount] = this;
         subjectCount++;
     }
@@ -28,6 +37,7 @@ public class Subject {
     public void getInfo() {
         System.out.println("this is subject " + subjectCode
         + " is taught by " + professorAM + " with enrolled " 
-        + studentNumber + " students");
+        + studentNumber + " students" + " taken in room "
+        + examRoomNumber);
     }
 }

@@ -1,5 +1,5 @@
 public class DB {
-    public static void AddInfo() {
+    public static void addInfo() {
         Room room1 = new Room(128);
         Room room2 = new Room(134);
         Room room3 = new Room(100);

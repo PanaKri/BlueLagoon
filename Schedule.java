@@ -31,15 +31,12 @@ public class Schedule {
         }
         newRoom = Room.rooms[bestChoice];
         do { // Searches when available
-            if (newRoom.checkAvailability(d, t, bestChoice) == true) {
+            if (newRoom.checkAvailability(d, t, r) == true) {
                 this.examTimes[d][t][bestChoice] = s;
                 flag = true;
             } else {
+                d = d + 1;
                 t = t + 1;
-                if (t == 6) {
-                    d = d + 1;
-                    t = 0;
-                }
             }
         } while (flag == false);
     }
@@ -63,22 +60,24 @@ public class Schedule {
         int h = 0;//Tracks the hour based on row
         for (int i = 0; i < 30; i++) {
             if (i % 6 == 0) { //Top rows are the days
-                scheduleArr[i][0] = "DAY" + i;
+                int g = (i % 6) + 1;
+                scheduleArr[i][0] = "DAY" + g;
                 h = 0;
             } else {
-                h = h + 1;
                 for (int j = 0; j < 6; j++) {
+                    int k = j % 6;
                     if (j % 5 == 0) { //Time on the left
                         scheduleArr[i][j] = "HOUR" + h;
                     } else {
-                        if (examTimes[i % 6][h][j] != "None") {
-                            scheduleArr[i][j] =  examTimes[i % 6][h][j] + ","
+                        if (examTimes[k][h][j-1] != "None") {
+                            scheduleArr[i][j] =  examTimes[k][h][j-1] + ","
                             + " Room" + (j - 1); //Saves subject and Room
                         } else {
                             scheduleArr[i][j] = ""; //Displays Nothing
                         }
                     }
                 }
+                h = h + 1;
             }
             
         }

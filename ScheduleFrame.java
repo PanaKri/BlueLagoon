@@ -32,7 +32,6 @@ public class ScheduleFrame extends JFrame {
         super("Course Selection");
         setSize(300, 150);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
 
         JPanel pane = new JPanel(new FlowLayout());
     
@@ -140,7 +139,7 @@ public class ScheduleFrame extends JFrame {
             if (resultS.next()) {
                 String examTime = resultS.getString("exam_time");
                 String examDate = resultS.getString("exam_date");
-                int subjectCode = resultS.getInt("subject_code");
+                int subjectCode = resultS.getInt("course_id");
                 int studentNumber = resultS.getInt("student_number");
                 int professorAM = resultS.getInt("professor_am");
                 int examRoomNumber = resultS.getInt("exam_room");
@@ -148,8 +147,9 @@ public class ScheduleFrame extends JFrame {
                 
                 Subject subject = new Subject(subjectCode, studentNumber, professorAM, examRoomNumber, courseName, examDate, examTime);
                 subjectList.add(subject);
-
-                showSchedule();
+                DB info = new DB();
+                info.addInfo();
+                showSchedule(subject);
 
             } else {
                 JOptionPane.showMessageDialog(null, "No details found for the selected course.");
@@ -168,10 +168,10 @@ public class ScheduleFrame extends JFrame {
         }
     }
 
-
-     private void showSchedule() {
-        addExam(subject);
+   
+    private void showSchedule(Subject subject) {
         Schedule s = new Schedule();
+        s.addExam(subject);
         String[][] scheduleArray = s.scheduleArray();
         
         JFrame scheduleF = new JFrame("Exam Schedule");
@@ -185,7 +185,7 @@ public class ScheduleFrame extends JFrame {
         scheduleF.setVisible(true);
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         new ScheduleFrame();
     }
 }

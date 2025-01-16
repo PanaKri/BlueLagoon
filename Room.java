@@ -1,26 +1,21 @@
 public class Room {
     private int numberOfSeats;
     private int roomNumber;    
-    public boolean availability[][];
-    public static Room[] rooms = new Room[5];
+    public boolean availability[][] = new boolean[5][5];
+    public static Room[] rooms = new Room[10];
     public static int roomCount = 0;
     // Constructor
-    public Room(int numberOfSeats) throws ArrayIndexOutOfBoundsException{
-        try {
-            this.numberOfSeats = numberOfSeats;
-            this.roomNumber = roomCount;
-            this.availability = new boolean[5][5];
-            for (int index = 0; index < availability.length; index++) {
-                for (int index1 = 0; index1 < availability.length; index++) {
-                    availability[index][index1] = true;
-                }
+    public Room(int numberOfSeats) {
+        this.numberOfSeats = numberOfSeats;
+        this.roomNumber = roomCount;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                this.availability[i][j] = true;
             }
-            rooms[roomCount] = this;
-            this.roomNumber = roomCount;
-            roomCount++;
-        } catch (Exception ArrayIndexOutOfBoundsException) {
-            System.out.println("Error, number of rooms has been surpassed" );
         }
+        rooms[roomCount] = this;
+        this.roomNumber = roomCount;
+        roomCount++;
     }
 
     public int getNumberOfSeats() {
