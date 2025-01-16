@@ -4,14 +4,15 @@ public class Subject {
     private String courseName;
     private int professorAM;
     public int examRoomNumber;
-    private String examDate;
-    private String examTime;
+    private int examDate;
+    private int examTime;
     public static Subject[] subjects;
     public static int subjectCount = 0;
     static {
         subjects = new Subject[100];
     }
-    public Subject(int subjectCode, int studNumber, int professorAM, int examrRoomNum, String courseName, String examDate, String examTime) {
+    public Subject(int subjectCode, int studNumber, int professorAM, 
+        int examrRoomNum, String courseName, int examDate, int examTime) {
         this.courseName = courseName;
         this.subjectCode = subjectCode;
         this.studentNumber = studNumber;
@@ -37,8 +38,7 @@ public class Subject {
     public void getInfo() {
         System.out.println("this is subject " + subjectCode
         + " is taught by " + professorAM + " with enrolled " 
-        + studentNumber + " students" + " taken in room "
-        + examRoomNumber);
+        + studentNumber + " students");
     }
     public void addStudent() {
         this.studentNumber = this.studentNumber + 1;
