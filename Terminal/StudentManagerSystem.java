@@ -20,17 +20,20 @@ public class StudentManagerSystem {
         choice = input.nextLine();
         boolean flag = false;
         int i = 0;
+        Subject selection = Subject.subjects[i];
         do {
             Subject sub = Subject.subjects[i];
             String name = sub.getSubjectName();
             if (name == choice) {
                 flag = true;
+                selection = sub;
             } else {
                 i = i + 1;
             }
         } while (flag = false & i < Subject.subjectCount);
         if (flag = true) {
             String answer = stud.getEnrolled(choice);
+            selection.addStudent();
             System.out.println(answer);
         }
     }

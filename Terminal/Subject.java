@@ -40,4 +40,7 @@ public class Subject {
         + studentNumber + " students" + " taken in room "
         + examRoomNumber);
     }
+    public void addStudent() {
+        this.studentNumber = this.studentNumber + 1;
+    }
 }
