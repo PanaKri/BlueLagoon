@@ -37,6 +37,7 @@ public class Room {
     public boolean checkAvailability(int day, int hour, int r) {
         if (this.availability[day][hour] == true) {
             this.availability[day][hour] = false;
+            System.out.println("");
             System.out.println("Room " + r + " is available on Day " + (day + 1) + " "
             + "Hour " + (hour + 1) +  " ,set exam in this day on this room");
             return true;

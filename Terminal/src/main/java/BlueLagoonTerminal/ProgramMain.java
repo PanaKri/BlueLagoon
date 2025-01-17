@@ -41,6 +41,7 @@ public class ProgramMain {
                     System.out.println("Hello, what would you like to do?");
                     int choice = 0;
                     do {
+                        System.out.println("");
                         System.out.println("Press 1 to add exam");
                         System.out.println("Press 2 to see your info");
                         System.out.println("Press 3 to see Exams");
@@ -49,12 +50,16 @@ public class ProgramMain {
                             choice = scanner1.nextInt();
                             scanner1.nextLine();
                             if (choice == 1) {
+                                System.out.println("");
                                 pms.addExam(schedule, prof);
                             } else if (choice == 2) {
+                                System.out.println("");
                                 prof.displayInformation();
                             } else if (choice == 3){
+                                System.out.println("");
                                 schedule.printSchedule();
                             } else if (choice == 0) {
+                                System.out.println("");
                                 System.out.println("Invalid choice, try again");
                             }
                         } catch (InputMismatchException e) {
@@ -73,6 +78,7 @@ public class ProgramMain {
                     System.out.println("Hello, what would you like to do?");
                     int choice = 0;
                     do {
+                        System.out.println("");
                         System.out.println("Press 1 to add Subject");
                         System.out.println("Press 2 to see your info");
                         System.out.println("Press 3 to see Exams");
@@ -81,10 +87,13 @@ public class ProgramMain {
                             choice = scanner1.nextInt();
                             scanner1.nextLine();
                             if (choice == 1) {
+                                System.out.println("");
                                 sms.addSubject(stud);
                             } else if (choice == 2) {
+                                System.out.println("");
                                 sms.DisplayInfo(stud);
                             } else if (choice == 3){
+                                System.out.println("");
                                 schedule.printSchedule();
                             }
                         } catch (InputMismatchException e) {

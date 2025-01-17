@@ -23,7 +23,7 @@ public class ProfessorManagerSystem {
         }
     }
     public void addExam(Schedule sched, Professor prof) {
-        Subject selected = Subject.subjects[0];
+        Subject selected = Subject.subjects[0]; //initialize subject
         System.out.println("Type the exam subject code:");
         int sub = scanner.nextInt();
         scanner.nextLine();
@@ -38,11 +38,22 @@ public class ProfessorManagerSystem {
             }
         }
         if (f == true) {
-            System.out.println("When are you available for an exam? (Type day, time)");
-            int d = scanner.nextInt();
-            int t = scanner.nextInt();
-            scanner.nextLine();
-            sched.addExam(selected, d, t);
+            boolean check = selected.checkExam();
+            if (check == false) {
+                System.out.println("");
+                System.out.println("When are you available for an exam? (Type day (1-5), time (1-5) )");
+                int d = scanner.nextInt();
+                d = d - 1;
+                int t = scanner.nextInt();
+                t = t - 1;
+                scanner.nextLine();
+                if (d <= 4 & d >=0 & t <= 4 & t >=0) {
+                    sched.addExam(selected, d, t);
+                } else {
+                    System.out.println("");
+                    System.out.println("Day or time not applicable");
+                }
+            }
         } else {
             System.out.println("You are not the professor of selected subject");
         }

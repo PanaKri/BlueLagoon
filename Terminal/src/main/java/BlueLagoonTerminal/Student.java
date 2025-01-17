@@ -21,9 +21,25 @@ public class Student {
     }
     public String getEnrolled(String s) {
         if (numbOfCourses < 5) {
-            courses[numbOfCourses] = s;
-            numbOfCourses = numbOfCourses + 1;
-            return "You have enrolled in:" + " " + s;
+            if (numbOfCourses == 0) {
+                courses[numbOfCourses] = s;
+                numbOfCourses = numbOfCourses + 1;
+                return "You have enrolled in:" + " " + s;
+            } else {
+                boolean flag = true;
+                for (int i = 0; i < numbOfCourses; i++) {
+                    if (s.equals(courses[i])) {
+                        flag = false;
+                    }
+                }
+                if (flag == true) {
+                    courses[numbOfCourses] = s;
+                    numbOfCourses = numbOfCourses + 1;
+                    return "You have enrolled in:" + " " + s;
+                } else {
+                    return "You have already registered in the course";
+                }
+            }
         } else {
             return "Max amount of courses reached";
         }

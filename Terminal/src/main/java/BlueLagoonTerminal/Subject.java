@@ -7,6 +7,7 @@ public class Subject {
     public int examRoomNumber;
     private int examDate;
     private int examTime;
+    private boolean exam = false;
     public static Subject[] subjects = new Subject[10];
     public static int subjectCount = 0;
     public Subject(int subjectCode, int studNumber, int professorAM, 
@@ -40,5 +41,21 @@ public class Subject {
     }
     public void addStudent() {
         this.studentNumber = this.studentNumber + 1;
+    }
+    public boolean checkExam() {
+        if (exam == true) {
+            System.out.println("");
+            System.out.println("Exam set on day " + examDate + ", time " 
+            + examTime + " on Room " + examRoomNumber);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public void setExam(int d, int t, int r) {
+        examDate = d;
+        examRoomNumber = r;
+        examTime = t;
+        exam = true;
     }
 }

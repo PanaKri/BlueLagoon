@@ -36,6 +36,7 @@ public class Schedule {
             if (newRoom.checkAvailability(day, time, bestChoice) == true) {
                 this.examTimes[d][t][bestChoice] = s;
                 flag = true;
+                sub.setExam(day, t, bestChoice);
             } else {
                 time = time + 1;
                 if (time == 5) {
@@ -53,8 +54,8 @@ public class Schedule {
                 System.out.print("Zone" + " " + (t + 1)); //Prints time below day
                 for (int r = 0; r < 5; r++) {
                     if (examTimes[d][t][r] != "None") {
-                        System.out.print(" Course:" + examTimes[d][t][r] + " "
-                        + "Room:" + r); //Prints Course and room next to zone
+                        System.out.print(" Course:" + examTimes[d][t][r] + ", "
+                        + "Room:" + r + "  "); //Prints Course and room next to zone
                     }
                 }
                 System.out.println(""); //Line change
