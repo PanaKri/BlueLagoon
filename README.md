@@ -7,8 +7,9 @@ optimize the exam rooms of a schedules exam period per the student number of eac
 1. [How to Run](#how-to-run)
 2. [How to Use](#how-to-use)
 3. [File Distribution](#file-distribution)
-4. [UML Diagram](#uml-diagram)
-5. [Data Structures & Algorithms](#data-structures--algorithms)
+4. [Data Structures & Algorithms](#data-structures--algorithms)
+5. [UML Diagram](#uml-diagram)
+
 
 ### How to Compile
  First, **clone** this git repository.
@@ -39,7 +40,7 @@ Interface, ans SQL database and an Inspector class. These are **NOT FUNCIONAL** 
 execution of the application. They are kept for historic purposes and a possible update on funcionality and
 addition of a UI.
 
-### Data structures and Algorithm
+### Data Structures & Algorithms
 
 1. Though originally planned with an SQL database in mind, the app runs on a mini Database on the **DB.java** file.
 **DO NOT** alter it if you won't be altering the other classes as well, because this might cause malfunction.
