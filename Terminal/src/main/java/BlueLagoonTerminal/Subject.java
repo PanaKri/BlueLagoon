@@ -53,9 +53,9 @@ public class Subject {
         }
     }
     public void setExam(int d, int t, int r) {
-        examDate = d;
+        examDate = d + 1;
         examRoomNumber = r;
-        examTime = t;
+        examTime = t + 1;
         exam = true;
     }
 }
