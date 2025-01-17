@@ -4,11 +4,12 @@ Welcome to the **BlueLagoon** Java project! This repository contains a simple to
 optimize the exam rooms of a schedules exam period per the student number of each exam.
 
 ## Table of Contents
-1. [How to Run](#how-to-run)
-2. [How to Use](#how-to-use)
-3. [File Distribution](#file-distribution)
-4. [Data Structures & Algorithms](#data-structures--algorithms)
-5. [UML Diagram](#uml-diagram)
+1. [How to Compile](#how-to-compile)
+2. [How to Run](#how-to-run)
+3. [How to Use](#how-to-use)
+4. [File Distribution](#file-distribution)
+5. [Data Structures & Algorithms](#data-structures--algorithms)
+6. [UML Diagram](#uml-diagram)
 
 
 ### How to Compile
@@ -20,7 +21,7 @@ Once the project is cloned in your copmuter:
 
 This provides a **compiled** .jar file on the target file.
 
-### Running the Application:
+### How to Run
 
 When you are done with the "How to Compile" section:
 **Run** java -jar target/Terminal-1.0-SNAPSHOT.jar on the C:\example\path\to\BlueLagoon\Terminal file.
