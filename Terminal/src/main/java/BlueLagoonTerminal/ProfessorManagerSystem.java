@@ -1,9 +1,24 @@
+/*
+ * Copyright 2025 BlueLagoon
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package BlueLagoonTerminal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class ProfessorManagerSystem {
     Scanner scanner = new Scanner(System.in);
-    public int identify() {
+    public int identify() { //Check if the AM exists
         try {
             System.out.println("");
             System.out.println("Type your AM");
@@ -13,11 +28,11 @@ public class ProfessorManagerSystem {
             for (int i = 0; i < Professor.profCount; i++) {
                 Professor professor = Professor.proffessors[i];
                 if (professor.getAM() == am) {
-                    AM = i;
+                    AM = i; //Stores value of AM if it exists
                 }
             }
-            return AM;
-        } catch (InputMismatchException e) {
+            return AM; //Return the AM or -1
+        } catch (InputMismatchException e) { //Handling in case of exception
             scanner.nextLine();
             return -1;
         }
@@ -30,7 +45,7 @@ public class ProfessorManagerSystem {
         boolean f = false;
         for (int i = 0; i < Subject.subjects.length; i++) {
             Subject subject = Subject.subjects[i];
-            if (subject.getSubjectCode() == sub) {
+            if (subject.getSubjectCode() == sub) { //Checks if subject code exists
                 if (subject.getProfessorAm() == prof.getAM()) {
                     f = true;
                     selected = subject;
@@ -38,8 +53,8 @@ public class ProfessorManagerSystem {
             }
         }
         if (f == true) {
-            boolean check = selected.checkExam();
-            if (check == false) {
+            boolean check = selected.checkExam(); //Checks if exam is already set up
+            if (check == false) { // if not set up asks for day and time available
                 System.out.println("");
                 System.out.println("When are you available for an exam? (Type day (1-5), time (1-5) )");
                 int d = scanner.nextInt();
@@ -55,7 +70,8 @@ public class ProfessorManagerSystem {
                 }
             }
         } else {
-            System.out.println("You are not the professor of selected subject");
+            System.out.println("You are not the professor of selected subject"); 
+            //if am and subject dont match
         }
     }
 }

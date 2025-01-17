@@ -1,3 +1,18 @@
+/*
+ * Copyright 2025 BlueLagoon
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package BlueLagoonTerminal;
 public class Subject {
     private int subjectCode;
@@ -10,6 +25,7 @@ public class Subject {
     private boolean exam = false;
     public static Subject[] subjects = new Subject[10];
     public static int subjectCount = 0;
+    //Constructor
     public Subject(int subjectCode, int studNumber, int professorAM, 
         int examrRoomNum, String courseName, int examDate, int examTime) {
         this.courseName = courseName;
@@ -43,7 +59,7 @@ public class Subject {
         this.studentNumber = this.studentNumber + 1;
     }
     public boolean checkExam() {
-        if (exam == true) {
+        if (exam == true) { //if exam is set, returns true
             System.out.println("");
             System.out.println("Exam set on day " + examDate + ", time " 
             + examTime + " on Room " + examRoomNumber);
@@ -56,6 +72,6 @@ public class Subject {
         examDate = d + 1;
         examRoomNumber = r;
         examTime = t + 1;
-        exam = true;
+        exam = true; //Signals that exam is set
     }
 }
